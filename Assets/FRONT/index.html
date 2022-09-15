@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="Styles/SCSS.css">
+	<!--Normalize CDN-->
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+	<!--FontAwesome-->
+	<!--old FA css <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">-->
+	<script src="https://kit.fontawesome.com/b1443b36b9.js" crossorigin="anonymous"></script>
+	<link rel="icon" type="image/x-icon" href="images/favicon.png">
+	<title>Archiquick</title>
+</head>
+<body>
+	<style>
+		.clearfix:before, .clearfix:after {
+  content: " ";
+  display: table; }
+
+.clearfix:after {
+  clear: both; }
+
+.wrapper {
+  width: 1040px;
+  max-width: 90%;
+  margin: 0 auto; }
+
+body {
+  font-family: Candara, Helvetica, Arial, sans-serif;
+  background-color: #f9f9f9; }
+  body .banner {
+    background-color: #0d8d99;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#0d8d99), color-stop(60%, #0d7d99), to(#0d5b99));
+    background-image: linear-gradient(#0d8d99, #0d7d99 60%, #0d5b99); }
+    body .banner #top_header {
+      padding: .7em 0;
+      border-bottom: 1px solid #2395a2; }
+      body .banner #top_header #icon {
+        height: 50px;
+        opacity: 70%;
+        margin-bottom: -10px; }
+      body .banner #top_header a {
+        font-size: 1em;
+        color: #82c4ca;
+        text-decoration: none;
+        margin-right: 20px; }
+        body .banner #top_header a.brand {
+          float: left;
+          font-weight: 600;
+          -webkit-transition: -webkit-transform 0.5s ease-out;
+          transition: -webkit-transform 0.5s ease-out;
+          transition: transform 0.5s ease-out;
+          transition: transform 0.5s ease-out, -webkit-transform 0.5s ease-out; }
+          body .banner #top_header a.brand span {
+            border: 2px solid #82c4ca;
+            border-radius: 100%;
+            display: inline-block;
+            width: 46px;
+            height: 46px;
+            line-height: 46px;
+            font-weight: 400;
+            text-align: center;
+            margin-right: .3em; }
+          body .banner #top_header a.brand:hover {
+            color: white;
+            -webkit-transform: scale(1.1, 1.1);
+                    transform: scale(1.1, 1.1); }
+        body .banner #top_header a.back_button {
+          float: right;
+          font-weight: 600;
+          margin-top: .9em;
+          -webkit-transition: -webkit-transform 0.5s ease-out;
+          transition: -webkit-transform 0.5s ease-out;
+          transition: transform 0.5s ease-out;
+          transition: transform 0.5s ease-out, -webkit-transform 0.5s ease-out; }
+          body .banner #top_header a.back_button:hover {
+            color: white;
+            -webkit-transform: scale(1.1, 1.1);
+                    transform: scale(1.1, 1.1); }
+    body .banner .intro {
+      padding: 3.5em 0 0 0;
+      text-align: center;
+      color: white; }
+      body .banner .intro .logo {
+        width: 140px;
+        height: auto; }
+      body .banner .intro h1 {
+        font-size: 2em;
+        margin: .3em 0; }
+      body .banner .intro p {
+        width: 700px;
+        margin: 0 auto;
+        max-width: 70%;
+        line-height: 1.5;
+        font-size: 1.1em;
+        color: #c4e4db;
+        padding: .4em 0 2em 0; }
+      body .banner .intro .download_buttons a.button {
+        background-color: #c4e4db;
+        color: #0576a0;
+        text-decoration: none;
+        padding: 0.6em 1.6em;
+        border-radius: 6px;
+        display: inline-block;
+        min-width: 200px;
+        max-width: 100%;
+        font-size: 1.1em;
+        margin-left: 1.3em; }
+        body .banner .intro .download_buttons a.button i {
+          float: left;
+          color: #0576a0;
+          margin-right: .3em; }
+        body .banner .intro .download_buttons a.button span {
+          float: left;
+          margin-top: .4em; }
+        body .banner .intro .download_buttons a.button:hover {
+          background-color: #fff; }
+      body .banner .intro .mobile_apps {
+        margin-top: 4em;
+        font-size: .9em; }
+        body .banner .intro .mobile_apps .button {
+          display: inline-block;
+          background-color: #2b647b;
+          border-radius: 6px;
+          width: 180px;
+          min-width: 180px;
+          max-width: 100%; }
+          body .banner .intro .mobile_apps .button:hover {
+            background-color: #26586c; }
+          body .banner .intro .mobile_apps .button img {
+            width: 100%;
+            max-width: 100%; }
+      body .banner .intro .apps_preview {
+        margin: 4em auto;
+        width: 90%;
+        margin-bottom: -12em; }
+  body .tools, body .team {
+    margin-top: 7em; }
+    body .tools h3, body .team h3 {
+      font-size: 2em;
+      font-weight: 400;
+      color: #888;
+      text-align: center;
+      margin-bottom: 2em; }
+    body .tools ul, body .team ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      text-align: center; }
+      body .tools ul li, body .team ul li {
+        width: 25%;
+        float: left;
+        text-align: center; }
+        body .tools ul li a, body .team ul li a {
+          color: #555;
+          text-decoration: none; }
+          body .tools ul li a h4, body .team ul li a h4 {
+            font-size: 1.4em;
+            font-weight: 400;
+            margin: .5em 0 .3em 0; }
+          body .tools ul li a p, body .team ul li a p {
+            color: #222;
+            max-width: 80%;
+            margin: .8em auto; }
+          body .tools ul li a img, body .team ul li a img {
+            width: 50%;
+            max-width: 120%;
+            padding: 0;
+            margin: 0; }
+  body .ligne {
+    margin: 6em auto 0 auto;
+    width: 70%;
+    max-width: 100%;
+    height: 3px;
+    background-color: #555;
+    text-align: center;
+    border-radius: 1px; }
+  body footer {
+    margin: 2em auto;
+    padding: 1em auto;
+    text-align: center; }
+    body footer p span {
+      font-style: italic; }
+      body footer p span a {
+        text-decoration: none; }
+    body footer p.copyright {
+      color: #555; }
+    body footer img {
+      width: 4em; }
+
+/*# sourceMappingURL=SCSS.css.map */
+	</style>
+	<div class="banner">
+
+		<header id="top_header" class="clearfix">
+			<div class="wrapper">
+
+				<a href="" class="brand">
+					<img id="icon" src="F:\WORK\WebSites\Archiquick\images\white icon logo.png">
+				</a>
+
+				<a href="index.html" class="back_button">
+					<i class="fa-solid fa-ellipsis fa-xl"></i>
+		  		</a>
+		  		<a href="index.html" class="back_button">
+					<i class="fa-solid fa-right-from-bracket"></i> 
+		  		</a>
+		  		<a href="index.html" class="back_button">
+					<i class="fa fa-solid fa-user">&nbsp</i> 
+		  		</a>
+				
+				
+			</div>
+
+		</header>
+
+		<div class="intro">
+
+			<div class="wrapper">
+				<img src="images/full white logo.png" class="logo" alt="Archiquick logo" title="Archiquick">
+				<h1>ARCHIQUICK</h1>
+				<p>
+					You are architecture lover ? Looking for help ? You want to contribute with your knowledge ?
+				</p>
+
+				<div class="download_buttons">
+
+					<a href="#" class="button"> <i class="fa fa-solid fa-magnifying-glass fa-2x"></i> <span>Get some help</span></a>
+
+					<a href="#" class="button"> <i class="fa-solid fa-people-group fa-2x"></i> <span>Join the Comunity</span></a>
+					
+				</div>
+
+				<div class="mobile_apps">
+					<p>
+						You can also download the app and try it for yourself
+					</p>
+
+					<a href="#" class="button">
+						<img src="images/appstore.png" alt="iOS Application" title="Download iOS application"></a>
+					</a>
+					<a href="#" class="button">
+						<img src="images/playstore.png" alt="Android Application" title="Download Android application"></a>
+					</a>
+
+					<p>
+						<img src="images/Plan A.png" class="apps_preview" alt="Application preview" title="Application preview">
+					</p>	
+
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+
+
+
+
+	<section class="team clearfix">
+
+
+
+		<div class="wrapper">
+
+		<h3>Brought to you by these guys</h3>			
+
+		<ul>
+				
+				<li>
+					<a href="#">
+					<img src="images/nyhad.png" alt="Nyhad" title="Nyhad">
+					<h4>Nyhad YAHIAOUI</h4>
+					<p>Process Consultant & Creative Thinking</p>
+					</a>
+				</li>
+
+				<li>
+					<a href="#">
+					<img src="images/ramy.png" alt="Ramy" title="Ramy">
+					<h4>Ramy BOUTEGRABET</h4>
+					<p>Lead Developer</p>
+					</a>
+				</li>
+
+				<li>
+					<a href="#">
+					<img src="images/rahim.png" alt="Rahim" title="Rahim">
+					<h4>Rahim IZONTAR</h4>
+					<p>Lead Designer</p>
+					</a>
+				</li>
+
+				<li>
+					<a href="#">
+					<img src="images/oussama.png" alt="Oussama" title="Oussama">
+					<h4>Oussama BENBERKANE </h4>
+					<p>Software Developer</p>
+					</a>
+				</li>
+
+		</ul>
+
+		</div>
+	</section>
+
+	<!--Séparateur-->
+	<section class="ligne clearfix">	</section>
+
+	<footer class="clearfix">
+		<p>Thanks to the whole the team for their hard work and dedication and for never giving up to bring you Archiquick</p>
+		<img class="tm_footer" src="images/footer logo.png">
+		<p>Built in Béjaia, Algeria by Archiquick developers</p>
+		<p class="copyright">Copyright Archiquick 2022</p>
+	</footer>
+
+</body>
+</html>

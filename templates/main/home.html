@@ -1,0 +1,95 @@
+{% extends '_partials/base.html' %}
+
+{% load static %}
+
+{% block content %}
+<div class="intro">
+
+	<div class="wrapper">
+		<img src="{% static 'images/full white logo.png' %}" class="logo" alt="Archiquick logo" title="Archiquick">
+		<h1>ARCHIQUICK</h1>
+		<p>
+			You are architecture lover ? Looking for help ? You want to contribute with your knowledge ?
+		</p>
+
+		<div class="download_buttons">
+
+			<a href="stack" class="button"> <i class="fa fa-solid fa-magnifying-glass fa-2x"></i> <span>Get some help</span></a>
+			{% if not user.is_authenticated %}
+			<a href="contact" class="button"> <i class="fa-solid fa-people-group fa-2x"></i> <span>Join the Comunity</span></a>
+			{% endif %}
+		</div>
+
+		<div class="mobile_apps">
+			<p>
+				You can also download the app and try it for yourself
+			</p>
+
+			<a href="#" class="button">
+				<img src="{% static 'images/appstore.png' %}" alt="iOS Application" title="Download iOS application"></a>
+			</a>
+			<a href="#" class="button">
+				<img src="{% static 'images/playstore.png' %}" alt="Android Application" title="Download Android application"></a>
+			</a>
+
+			<p>
+				<img src="{% static 'images/Plan A.png' %}" class="apps_preview" alt="Application preview" title="Application preview">
+			</p>	
+
+		</div>
+
+	</div>
+
+</div>
+</div>
+
+
+
+
+<section class="team clearfix">
+
+
+
+<div class="wrapper">
+
+<h3>Brought to you by these guys</h3>			
+
+<ul>
+		
+		<li>
+			<a href="#">
+			<img src="{% static 'images/nyhad.png' %}" alt="Nyhad" title="Nyhad">
+			<h4>Nyhad YAHIAOUI</h4>
+			<p>Process Consultant & Creative Thinking</p>
+			</a>
+		</li>
+
+		<li>
+			<a href="#">
+			<img src="{% static 'images/ramy.png' %}" alt="Ramy" title="Ramy">
+			<h4>Ramy BOUTEGRABET</h4>
+			<p>Lead Developer</p>
+			</a>
+		</li>
+
+		<li>
+			<a href="#">
+			<img src="{% static 'images/rahim.png' %}" alt="Rahim" title="Rahim">
+			<h4>Rahim IZONTAR</h4>
+			<p>Lead Designer</p>
+			</a>
+		</li>
+
+		<li>
+			<a href="#">
+			<img src="{% static 'images/oussama.png' %}" alt="Oussama" title="Oussama">
+			<h4>Oussama BENBERKANE </h4>
+			<p>Software Developer</p>
+			</a>
+		</li>
+
+</ul>
+
+</div>
+</section>
+{% endblock %}

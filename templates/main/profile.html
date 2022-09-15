@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+    <title>Profile</title>
+</head>
+<body>
+    <div class="container">
+        <div class="profile-box">
+            <img src="{% static 'profile_images/menu.png' %}" class="menu icon">
+            <img src="{% static 'profile_images/setting.png' %}" class="setting icon">
+            <img src="{% static 'profile_images/prof.jpg' %}" class="profile-pic">
+            <h3>{{username}}</h3>
+            <p>Web Developer</p>
+            <div class="social-media">
+                <img src="{% static 'profile_images/instagram.png' %}" alt="">
+                <img src="{% static 'profile_images/telegram.png' %}" alt="">
+                <img src="{% static 'profile_images/dribble.png' %}" alt="">
+            </div>
+            <button type="button">Follow</button>
+            <div class="profile-bottom">
+                <p>See Archiquick projects</p>
+                <img src="{% static 'profile_images/arrow.png' %}" alt="">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

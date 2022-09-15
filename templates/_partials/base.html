@@ -1,0 +1,57 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+	<!--Normalize CDN-->
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+	<!--FontAwesome-->
+	<!--old FA css <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">-->
+	<script src="https://kit.fontawesome.com/b1443b36b9.js" crossorigin="anonymous"></script>
+	<link rel="icon" type="image/x-icon" href="{% static 'images/favicon.png' %}">
+	<title>Archiquick</title>
+</head>
+<body>
+	
+	<div class="banner">
+
+		<header id="top_header" class="clearfix">
+			<div class="wrapper">
+
+				<a href="" class="brand">
+					<img id="icon" src="{% static 'images\white icon logo.png' %}" >
+				</a>
+
+				<a href="index.html" class="back_button">
+					<i class="fa-solid fa-ellipsis fa-xl"></i>
+		  		</a>
+				{% if user.is_authenticated %} 
+		  		<a href="/logout/" class="back_button">
+					<i class="fa-solid fa-right-from-bracket"></i> 
+		  		</a>
+		  		<a href="/profile/" class="back_button">
+					<i class="fa fa-solid fa-user"></i> 
+		  		</a>
+				{% endif %}
+				
+				
+			</div>
+
+		</header>
+        {% block content %}
+
+        {% endblock %}
+        <!--Séparateur-->
+	<section class="ligne clearfix">	</section>
+
+	<footer class="clearfix">
+		<p>Thanks to the whole the team for their hard work and dedication and for never giving up to bring you Archiquick</p>
+		<img class="tm_footer" src="{% static 'images/footer logo.png' %}">
+		<p>Built in Béjaia, Algeria by Archiquick developers</p>
+		<p class="copyright">Copyright Archiquick 2022</p>
+	</footer>
+
+</body>
+</html>

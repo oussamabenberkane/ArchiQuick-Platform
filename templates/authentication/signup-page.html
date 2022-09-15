@@ -1,0 +1,43 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="{% static 'css/login-page.css' %}">
+  </head>
+  <body>
+    
+    <section class="container">
+        <div class="contact-box">
+          
+            {% if messages %}
+            {% for message in messages %}
+              <div class="alert alert={{message.tags}}">{{message}}</div>
+              {% if message.tags %}<button type="button" style="background:transparent;" class="btn {{ message.tags }}"> {% endif %}
+                {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %} <a href=".">Try again</a> 
+                {% else %} <a href="authentication/login-page.html">Continue</a> {% endif %}</button>
+            {% endfor %}
+            {% endif %}
+            
+          {% if not messages %}
+          <form class="right" action="/contact/signup/" method="POST" >
+           {% csrf_token %}
+            <h2>Sign up</h2>
+            <input type="text" class="field" name="first-name" required placeholder="First Name">
+            <input type="text" class="field" name="last-name" required placeholder="Last Name">
+            <input type="text" class="field" name="username" required placeholder="Username">
+            <input type="tel" class="field" name="telephone" required placeholder="Your Phone Number">
+            <input type="email" class="field" name="email" required placeholder="Your Email">
+            <input type="password" class="field" name="password" required placeholder="Your Password">
+            <input type="password" class="field" name="password-confirmation" required placeholder="Confirm Your Password">
+            <button type="submit" class="btn">Submit</button>
+          </form>
+          {% endif %}
+        </div>
+    </section>
+  </body>
+</html>
+      
