@@ -2,6 +2,7 @@ Install:
 
 cd [folderpath]
 pip install Django
+pip install pipenv
 
 pipenv shell
 django-admin startproject [projectname] . #the point is to use current directory instead of creating one
@@ -31,7 +32,7 @@ pipenv install django-debug-toolbar
 
 DATABASE: (in command line)
 cd xampp\mysql\bin
-mysql -u root -p    ##mysql -h localhost -u root (without pw)
+mysql -u root -p  (if using password) mysql -h localhost -u root (without pw)
 create database Platform
 use [nameofdb]
 create table users(id INT NOT NULL AUTO_INCREMENT,
@@ -45,7 +46,7 @@ create table users(id INT NOT NULL AUTO_INCREMENT,
 
 ASSETS:
 create template as a dir out there, it will contain all the apps' html
-"DIRS": [os.path.join(BASE_DIR,'templates')], 
+"DIRS": [os.path.join(BASE_DIR,'templates')],
 create static as a dir inside the project forlder, it will contain all the apps' css js images..ect
 STATIC_URL = "static/"
 STATICFILES_DIRS =[ os.path.join(BASE_DIR,'PlatformDb/static')]
@@ -66,8 +67,11 @@ Encrypted password:
 from django.contrib.auth.hashers import make_password
 raw_pass = form.cleaned_data.get('password')
 raw_pass = make_password(form.cleaned_data.get('password'))
+
+DELETE from users where id=3;
+TRUNCATE users;
+
+{% if user.is_authenticated %}<h3>{{user.get_username}}</h3>{% endif %}
 '''
 
-QUESTIONS:
-header and footer css separate
 

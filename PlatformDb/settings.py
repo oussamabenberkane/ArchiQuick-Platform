@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     #myApps
     "main",
     "authentication",
-    "stack"
+    "stack",
+    #"django_email_verification",
 ]
 
 INTERNAL_IPS = [
@@ -134,3 +135,21 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend'
 ]
+
+# Email verification
+'''
+EMAIL_ACTIVE_FIELD = 'is_active' #  will be set to true once the email is confirmed
+EMAIL_SERVER = 'smtp.gmail.com'  #  mail provider server
+EMAIL_PORT = 587
+EMAIL_ADDRESS ='archidevplatform@gmail.com' #  main email
+EMAIL_FROM_ADDRESS = 'archidevplatform@gmail.com' #  alternative email  
+EMAIL_PASSWORD = 'archidevist'
+EMAIL_MAIL_SUBJECT = 'Confirm your email'
+EMAIL_MAIL_HTML = 'mail/mail_body.html'
+EMAIL_MAIL_PLAIN = 'mail/mail_body.txt'
+EMAIL_PAGE_TEMPLATE = 'mail/confirm_template.html'
+EMAIL_PAGE_DOMAIN = 'http://127.0.0.1:8000/'
+EMAIL_MAIL_TOKEN_LIFE = 60 * 60
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_MULTI_USER = True
+'''

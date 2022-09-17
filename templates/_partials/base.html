@@ -18,8 +18,13 @@
 	<div class="banner">
 
 		<header id="top_header" class="clearfix">
+			
 			<div class="wrapper">
-
+				{% if user.is_authenticated %} 
+					<div class="username" style="position: absolute; right: 23%; top: 5px; ">
+						<h3 style="color: #c4e4db; text-transform: capitalize;">{{user.get_username}}</h3> 
+					</div>
+				{% endif %}
 				<a href="" class="brand">
 					<img id="icon" src="{% static 'images\white icon logo.png' %}" >
 				</a>

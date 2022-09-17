@@ -9,7 +9,7 @@
   width: 1040px;
   max-width: 90%;
   margin: 0 auto; }
-
+ 
 body {
   font-family: Candara, Helvetica, Arial, sans-serif;
   background-color: #f9f9f9; }
@@ -24,6 +24,13 @@ body {
         height: 50px;
         opacity: 70%;
         margin-bottom: -10px; }
+      body .banner #top_header .username {
+        position: absolute;
+        right: 23%;
+        top: 5px; }
+      body .banner #top_header .username h3 {
+          color: #c4e4db;
+          text-transform: capitalize; }
       body .banner #top_header a {
         font-size: 1em;
         color: #82c4ca;

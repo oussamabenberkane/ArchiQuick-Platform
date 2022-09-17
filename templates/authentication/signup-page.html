@@ -17,8 +17,7 @@
             {% for message in messages %}
               <div class="alert alert={{message.tags}}">{{message}}</div>
               {% if message.tags %}<button type="button" style="background:transparent;" class="btn {{ message.tags }}"> {% endif %}
-                {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %} <a href=".">Try again</a> 
-                {% else %} <a href="authentication/login-page.html">Continue</a> {% endif %}</button>
+                {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %} <a href=".">Try again</a> {% else %} <a href="../..">continue</a> {% endif %}</button>
             {% endfor %}
             {% endif %}
             

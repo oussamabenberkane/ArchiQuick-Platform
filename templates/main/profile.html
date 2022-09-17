@@ -14,7 +14,7 @@
             <img src="{% static 'profile_images/menu.png' %}" class="menu icon">
             <img src="{% static 'profile_images/setting.png' %}" class="setting icon">
             <img src="{% static 'profile_images/prof.jpg' %}" class="profile-pic">
-            <h3>{{username}}</h3>
+            {% if user.is_authenticated %}<h3>{{user.get_username}}</h3>{% endif %}
             <p>Web Developer</p>
             <div class="social-media">
                 <img src="{% static 'profile_images/instagram.png' %}" alt="">

@@ -9,22 +9,12 @@ from django.contrib.auth import logout, authenticate, login
 def contactaction(request):
     return render(request, 'authentication/contact.html')
 
-#   logout from logout logo in main platform inteface (_partials/base.html)
-def logoutaction(request):
-    global active_user
-
-    logout(request)
-    active_user = ''   #    resetting active_user to none
-    return redirect('home')
-
 
 #   Logging in existing account
 def loginaction(request):
 
-    global active_user  #   currently active user variable to use in other functions
-
     if request.user.is_authenticated:   #   in case the same url was requested while loged in.
-        return HttpResponse(f'You are already active {active_user}')
+        return HttpResponse(f'You are already active as {user.get_username}')
 
     if request.method == "POST":    #   post method from form in (authentication/login-page.html)
 
@@ -32,16 +22,29 @@ def loginaction(request):
         active_user = request.POST['username']
         password = request.POST['password']
 
-        #   user variable now contains session parameters (username and password)
+        #   connection to mysql database
+        m = sql.connect(host="localhost", user="root", password="tool", database="platform")    
+
+        #   setting cursor to manipulate database content
+        cursor=m.cursor()   
+
+        #   user variable contains session parameters (username and password)
         user = authenticate(request, username=active_user, password=password)   
 
-        if user is not None:    #   if the user exists in database
+
+        #   using the information from the table 'users'
+        c = "select * from users where username='{}' and password='{}'".format(active_user, password)
+        cursor.execute(c)
+
+        #    fetching the tuple (username, password) if it exists from db
+        t=tuple(cursor.fetchall()) 
+
+        if user is not None and t != ():    #   if the user exists in local database and mysql database
 
             #   start user session
             login(request, user)    
-
-            return render(request, 'main/home.html', #   main platorm interface while user is now authenticated (profile and logout is added to partials/base.html)
-            {'username': active_user})  #   {'username': active_user}: use variable in html with {{username}} 
+           
+            return redirect('../..') #   main platorm interface while user is now authenticated (profile and logout icons are added to partials/base.html)  
                                                                                  
         else:   #   if the user does not exist in database
 
@@ -58,9 +61,10 @@ def signupaction(request):
         #   connection to mysql database
         m = sql.connect(host="localhost", user="root", password="tool", database="platform")    
 
-        cursor=m.cursor()   #   set cursor to manipulate database content
+        #   setting cursor to manipulate database content
+        cursor=m.cursor()   
 
-        #   fetch typed in information from form
+        #   fetching typed in information from form
         firstname = request.POST['first-name']
         lastname = request.POST['last-name']
         username = request.POST['username']
@@ -69,17 +73,30 @@ def signupaction(request):
         password = request.POST['password']
         confirmation = request.POST['password-confirmation']    #   confirmation variable is not saved in db, only used to check password confirmation
 
-        #   create a django user.
-        myUser = User.objects.create_user(username, email, password)    
-        myUser.first_name = firstname
-        myUser.last_name = lastname
-        myUser.save()
-        
-        #   saving the info into user table in database
+        #   creating a django user.
+        p = "select * from users where username='{}' and password='{}'".format(username, password)
+        cursor.execute(p)
+        #    fetching the duplicate tuple username password if it exists from db
+        t=tuple(cursor.fetchall()) 
+
+        msg3= f'hi {username}, it seems like your account exists already in database'   #   in case tuple already exists
+
+        if t==():
+            #   creating the django user 
+            myUser = User.objects.create_user(username, email, password)    
+            myUser.first_name = firstname
+            myUser.last_name = lastname
+            myUser.save()
+        else:
+            messages.error(request, msg3)
+            redirect ('login')
+
+    
+        #   saving the info into user table in mysql database
         c = "insert into users(firstname,lastname,username,telephone,email,password) Values('{}','{}','{}','{}','{}','{}')".format(firstname, lastname, username, telephone, email, password)
         cursor.execute(c)
 
-        msg1= f'hi {username}, your account has been created successfully'
+        msg1= f'hi {username}, your account has been created successfully.'
         msg2 = f'hi {username}, please make sure you double check your password confirmation'
 
         #   checking password confirmation
@@ -92,4 +109,12 @@ def signupaction(request):
             return redirect('signup')
     
     return render(request, 'authentication/signup-page.html')
+
+#   logout from logout icon in main platform interface (_partials/base.html)
+
+def logoutaction(request):
+
+    logout(request)
+    
+    return redirect('home')
 
